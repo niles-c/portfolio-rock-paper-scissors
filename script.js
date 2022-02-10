@@ -13,20 +13,7 @@ function computerPlay() {
 // playRound() returns a string that declares the winner of the round
 // the playerSelection parameter should be case-insensitive to account for variations
 
-// use toLowerCase() function to ensure all inputs are the same case
-// let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
-
-// added a while loop to ensure the user enters one of the three options
-// while (
-//   playerSelection !== "rock" &&
-//   playerSelection !== "paper" &&
-//   playerSelection !== "scissors"
-// ) {
-//   playerSelection = prompt(
-//     "Choose a valid input: rock, paper, or scissors"
-//   ).toLowerCase();
-// }
-
+// playerScore and computerScore keep track of the round winner
 let playerScore = 0;
 let computerScore = 0;
 
@@ -35,11 +22,13 @@ function playRound(playerSelection, computerSelection) {
     console.log(
       `You chose ${playerSelection} and the computer chose ${computerSelection}. Paper beats rock! Sorry!`
     );
+    // increment score when computer wins
     computerScore++;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     console.log(
       `You chose ${playerSelection} and the computer chose ${computerSelection}. Paper beats rock! Congrats!`
     );
+    // increment score when player wins
     playerScore++;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     console.log(
@@ -79,9 +68,12 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 0; i < 5; i++) {
+    // prompt the player to choose an option
+    // use the toLowerCase() function to ensure input is case-insensitive
     let playerSelection = prompt(
       "Choose rock, paper, or scissors"
     ).toLowerCase();
+    // added a while loop to ensure the user enters one of the three options
     while (
       playerSelection !== "rock" &&
       playerSelection !== "paper" &&
@@ -118,10 +110,28 @@ if (playerScore > computerScore) {
 
 // I should find a way to keep the user in a while loop so they are prompted at the conclusion of every game
 
-let newGame = prompt("Would you like to play again? Choose yes or no");
+let newGame = prompt(
+  "Would you like to play again? Choose yes or no"
+).toLowerCase();
 
 if (newGame === "yes") {
   game();
-} else {
+} else if (newGame === "no") {
   console.log("Ok, goodbye for now.");
+} else {
+  console.log("Sorry, please answer yes or no");
+}
+
+// Find a way to loop game without having to repeat the following code that displays the results
+
+if (playerScore > computerScore) {
+  console.log(
+    `Congrats! You beat the computer ${playerScore} out of 5 rounds!`
+  );
+} else if (playerScore === computerScore) {
+  console.log("This game ended in a tie. How bizzare.");
+} else {
+  console.log(
+    `Oh no, the computer beat you ${computerScore} out of 5 rounds...`
+  );
 }
