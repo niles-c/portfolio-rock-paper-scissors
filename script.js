@@ -17,6 +17,7 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
+// functon playRound() plays a single round of rock, paper, scissors
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
     console.log(
@@ -55,12 +56,10 @@ function playRound(playerSelection, computerSelection) {
       `You chose ${playerSelection} and the computer chose ${computerSelection}. That's a tie!`
     );
   }
+  // return the scores at the end of the round
   return playerScore;
   return computerScore;
 }
-
-// functon playRound() plays a single round of rock, paper, scissors.
-// playRound(playerSelection, computerPlay());
 
 // write a new function called game()
 // insert playRound() inside game() and loop playRound() to play a 5 round game
@@ -73,7 +72,7 @@ function game() {
     let playerSelection = prompt(
       "Choose rock, paper, or scissors"
     ).toLowerCase();
-    // added a while loop to ensure the user enters one of the three options
+    // added a while loop to force the user to enter one of the three options
     while (
       playerSelection !== "rock" &&
       playerSelection !== "paper" &&
@@ -83,55 +82,44 @@ function game() {
         "Choose a valid input: rock, paper, or scissors"
       ).toLowerCase();
     }
+    // invoke playRound() with arguments playerSelection (the player's input) and computerPlay() (the computer's random choice)
     playRound(playerSelection, computerPlay());
+  }
+  // report a winner at the end
+  // IF the player won more rounds than the computer, declare the player as the winner
+  // ELSE IF delcare a tie if the player and computer won an equal number of rounds
+  // ELSE declare the computer as the winner
+  if (playerScore > computerScore) {
+    console.log(
+      `Congrats! You beat the computer ${playerScore} out of 5 rounds!`
+    );
+  } else if (playerScore === computerScore) {
+    console.log("This game ended in a tie. How bizzare.");
+  } else {
+    console.log(
+      `Oh no, the computer beat you ${computerScore} out of 5 rounds...`
+    );
+  }
+  // ask the player if they want to play another 5-round game
+  let newGame = prompt(
+    "Would you like to play again? Choose yes or no"
+  ).toLowerCase();
+
+  // force the player to select a valid input with another while loop:
+  while (newGame !== "yes" && newGame !== "no") {
+    newGame = prompt("Choose yes or no").toLowerCase();
+  }
+
+  if (newGame === "yes") {
+    // reset scores for computer and player so they don't outpace rounds played
+    playerScore = 0;
+    computerScore = 0;
+    // invoke game() to start a new 5-round game
+    game();
+  } else {
+    console.log("Ok, goodbye for now.");
   }
 }
 
 // invoke function game() to play 5 rounds
 game();
-
-// report a winner at the end
-// IF number of player wins is less than player losses, print player loser
-// ELSE print player winner
-
-if (playerScore > computerScore) {
-  console.log(
-    `Congrats! You beat the computer ${playerScore} out of 5 rounds!`
-  );
-} else if (playerScore === computerScore) {
-  console.log("This game ended in a tie. How bizzare.");
-} else {
-  console.log(
-    `Oh no, the computer beat you ${computerScore} out of 5 rounds...`
-  );
-}
-
-// in all 3 result scenarios (player wins, player loses, all ties), ask player if they want to play again
-
-// I should find a way to keep the user in a while loop so they are prompted at the conclusion of every game
-
-let newGame = prompt(
-  "Would you like to play again? Choose yes or no"
-).toLowerCase();
-
-if (newGame === "yes") {
-  game();
-} else if (newGame === "no") {
-  console.log("Ok, goodbye for now.");
-} else {
-  console.log("Sorry, please answer yes or no");
-}
-
-// Find a way to loop game without having to repeat the following code that displays the results
-
-if (playerScore > computerScore) {
-  console.log(
-    `Congrats! You beat the computer ${playerScore} out of 5 rounds!`
-  );
-} else if (playerScore === computerScore) {
-  console.log("This game ended in a tie. How bizzare.");
-} else {
-  console.log(
-    `Oh no, the computer beat you ${computerScore} out of 5 rounds...`
-  );
-}
