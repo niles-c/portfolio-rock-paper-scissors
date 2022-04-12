@@ -1,6 +1,11 @@
 // Project: Rock Paper Scissors
 
-// Starting with an algorithm for the game:
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+const newGameBtn = document.querySelector("#newGame");
+const roundResult = document.querySelector("#roundResult");
+const finalScore = document.querySelector("#finalScore");
 
 // a function called computerPlay randomly returns "Rock", "Paper", or "Scissors"
 function computerPlay() {
@@ -8,14 +13,31 @@ function computerPlay() {
 
   return options[Math.floor(Math.random() * 3) + 1];
 }
-// a function called playRound() plays a single round of rock paper scissors
-// playRound() takes two parameters - playerSelection and computerSelection
-// playRound() returns a string that declares the winner of the round
-// the playerSelection parameter should be case-insensitive to account for variations
 
-// playerScore and computerScore keep track of the round winner
 let playerScore = 0;
 let computerScore = 0;
+// NEW VARIABLES:
+let isGameOver = false;
+let roundsToPlay = 5;
+
+rockBtn.addEventListener("click", function () {
+  playRound("rock", computerPlay());
+});
+
+paperBtn.addEventListener("click", function () {
+  playRound("paper", computerPlay());
+});
+
+scissorsBtn.addEventListener("click", function () {
+  playRound("scissors", computerPlay());
+});
+
+newGameBtn.addEventListener("click", function () {
+  isGameOver = false;
+  playerScore = 0;
+  computerScore = 0;
+  // remove lis appended to "play area" ul
+});
 
 // functon playRound() plays a single round of rock, paper, scissors
 function playRound(playerSelection, computerSelection) {
@@ -23,13 +45,12 @@ function playRound(playerSelection, computerSelection) {
     console.log(
       `You chose ${playerSelection} and the computer chose ${computerSelection}. Paper beats rock! Sorry!`
     );
-    // increment score when computer wins
     computerScore++;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     console.log(
       `You chose ${playerSelection} and the computer chose ${computerSelection}. Paper beats rock! Congrats!`
     );
-    // increment score when player wins
+
     playerScore++;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     console.log(
@@ -67,28 +88,23 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    // prompt the player to choose an option
-    // use the toLowerCase() function to ensure input is case-insensitive
-    let playerSelection = prompt(
-      "Choose rock, paper, or scissors"
-    ).toLowerCase();
-    // added a while loop to force the user to enter one of the three options
-    while (
-      playerSelection !== "rock" &&
-      playerSelection !== "paper" &&
-      playerSelection !== "scissors"
-    ) {
-      playerSelection = prompt(
-        "Choose a valid input: rock, paper, or scissors"
-      ).toLowerCase();
-    }
-    // invoke playRound() with arguments playerSelection (the player's input) and computerPlay() (the computer's random choice)
+    // let playerSelection = prompt(
+    //   "Choose rock, paper, or scissors"
+    // ).toLowerCase();
+    // // added a while loop to force the user to enter one of the three options
+    // while (
+    //   playerSelection !== "rock" &&
+    //   playerSelection !== "paper" &&
+    //   playerSelection !== "scissors"
+    // ) {
+    //   playerSelection = prompt(
+    //     "Choose a valid input: rock, paper, or scissors"
+    //   ).toLowerCase();
+    // }
+
     playRound(playerSelection, computerPlay());
   }
-  // report a winner at the end
-  // IF the player won more rounds than the computer, declare the player as the winner
-  // ELSE IF delcare a tie if the player and computer won an equal number of rounds
-  // ELSE declare the computer as the winner
+
   if (playerScore > computerScore) {
     console.log(
       `Congrats! You beat the computer ${playerScore} out of 5 rounds!`
@@ -122,4 +138,4 @@ function game() {
 }
 
 // invoke function game() to play 5 rounds
-game();
+// game();
