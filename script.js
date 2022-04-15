@@ -47,9 +47,55 @@ newGameBtn.addEventListener("click", function () {
   isGameOver = false;
   playerScore = 0;
   computerScore = 0;
-
-  // remove lis appended to "play area" ul
+  roundScore.innerText = "";
+  player.innerText = "0";
+  computer.innerText = "0";
+  finalScore.innerText = "";
+  player.classList.remove("winner", "loser");
+  computer.classList.remove("winner", "loser");
 });
+
+function playRound(playerSelection, computerSelection) {
+  const newLi = document.createElement("li");
+  newLi.classList.add("newLi");
+  if (
+    (playerSelection === "rock" && computerSelection === "paper") ||
+    (playerSelection === "scissors" && computerSelection === "rock") ||
+    (playerSelection === "paper" && computerSelection === "scissors")
+  ) {
+    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. You lost.`;
+    roundScore.appendChild(newLi);
+    computerScore++;
+    computer.innerText = computerScore;
+  } else if (
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. You win!`;
+    roundScore.appendChild(newLi);
+    playerScore++;
+    player.innerText = playerScore;
+  } else if (playerSelection === computerSelection) {
+    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. That's a tie!`;
+    roundScore.appendChild(newLi);
+  }
+}
+
+function endGame() {
+  if (playerScore === scoreToReach || computerScore === scoreToReach) {
+    isGameOver = true;
+    if (playerScore === scoreToReach) {
+      finalScore.innerText = "You won the game! Yay!";
+      player.classList.add("winner");
+      computer.classList.add("loser");
+    } else if (computerScore === scoreToReach) {
+      finalScore.innerText = "You lost the game. Maybe next time.";
+      computer.classList.add("winner");
+      player.classList.add("loser");
+    }
+  }
+}
 
 // functon playRound() plays a single round of rock, paper, scissors
 // function playRound(playerSelection, computerSelection) {
@@ -89,43 +135,6 @@ newGameBtn.addEventListener("click", function () {
 //     roundScore.appendChild(newLi);
 //   }
 // }
-
-function playRound(playerSelection, computerSelection) {
-  const newLi = document.createElement("li");
-  if (
-    (playerSelection === "rock" && computerSelection === "paper") ||
-    (playerSelection === "scissors" && computerSelection === "rock") ||
-    (playerSelection === "paper" && computerSelection === "scissors")
-  ) {
-    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. You lost.`;
-    roundScore.appendChild(newLi);
-    computerScore++;
-    computer.innerText = computerScore;
-  } else if (
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. You win!`;
-    roundScore.appendChild(newLi);
-    playerScore++;
-    player.innerText = playerScore;
-  } else if (playerSelection === computerSelection) {
-    newLi.innerText = `You chose ${playerSelection} and the computer chose ${computerSelection}. That's a tie!`;
-    roundScore.appendChild(newLi);
-  }
-}
-
-function endGame() {
-  if (playerScore === scoreToReach || computerScore === scoreToReach) {
-    isGameOver = true;
-    if (playerScore === scoreToReach) {
-      finalScore.innerText = "You won the game! Yay!";
-    } else if (computerScore === scoreToReach) {
-      finalScore.innerText = "You lost the game. Maybe next time.";
-    }
-  }
-}
 
 // function increaseComputer () {
 
