@@ -24,15 +24,15 @@ I was tasked with
 
 - Creating buttons for each selection (rock, paper, or scissors)
 - Adding a div to display results and changing all console.logs into DOM methods
-- Displaying the running score, and announce a winner of the game once one player reaches 5 points.
+- Displaying the running score, and announcing a winner of the game once one player reaches 5 points.
 - Refactoring original code as necessary
 
-I had the change to practice using
+I had the chance to practice using
 
 - Query selectors
 - Event listeners
-- innerText
-- classList
+- innerText method
+- classList method
 
 ### My Process
 
@@ -40,7 +40,7 @@ I had a lot fun with Part 2 of this project, particuarly because I was exposed t
 
 Starting out with this project, I had the following goals in mind:
 
-- Maintain the core logic where applicable (if it ain't broke...), but identify opportunities to clean up lengthy code (my original function playRound was the main culprit)
+- Maintain the core logic where applicable, but identify opportunities to clean up lengthy code (my original function playRound was the main culprit)
 - Convert all console.logs to DOM methods
 - Take functionality that can stand alone, and move it into a separate function
 - Remove code applicable to playing the game via the console (Part 1), such as the game() function that prompted the user for input, looped over playRound 5 times, and so on
@@ -101,9 +101,9 @@ function endGame() {
 }
 ```
 
-Finally, I really wanted to clean up my admittedly unruly playRound function.
+Finally, I wanted to clean up my admittedly unruly playRound function.
 
-First, I converted the console.logs to DOM methods. Each time playRound is called through a button click, a new li is appended to the empty ul that displays the round result. The score for the round winner increments, and the displayed score updates.
+First, I converted the console.logs to DOM methods. Each time playRound is called through a button click, a new "li" element is appended to the empty "ul" element that displays the round result. The score for the round winner increments, and the displayed score updates.
 
 Second, I worked to condense the if...else conditions:
 
@@ -140,15 +140,13 @@ I believe I was successful in cleaning up the playRound function. Instead of lis
 
 When I revisit this code in the future, I'm sure I'll realize even more ways to improve this code :)
 
-Overall, this project was an extremely valuable learning experience. It was truly a joy to practice manipulating the DOM in Part 2 For the past several weeks, I've been diving into Javascript, learning arrays, methods, functions, and so on. In Part 2 of this project, I had the chance to see how JS, HTML, and CSS all work together.
+Overall, this project was an extremely valuable learning experience. It was a joy to practice manipulating the DOM in Part 2. For the past several weeks, I've been diving into Javascript, learning arrays, methods, functions, and so on. In Part 2 of this project, I had the chance to see how JS, HTML, and CSS all work together.
 
 ## Part 1 (2/15/22)
 
 ### The Challenge
 
-Users should be able to:
-
-- Play a five-round game of the grade-school classic "rock paper scissors" against the computer from the browser console.
+Users should be able to play a five-round game of the grade-school classic "rock paper scissors" against the computer from the browser console.
 
 ### My Process
 
@@ -183,7 +181,7 @@ The algorithm I started with is as follows:
 // Keep score and report a winner and loser at the end
 ```
 
-To begin, I wrote a function computerPlay() to represent the computer's action:
+To begin, I wrote the computerPlay function to represent the computer's action:
 
 ```js
 function computerPlay() {
@@ -193,7 +191,7 @@ function computerPlay() {
 }
 ```
 
-Within computerPlay() I decared a variable with an object value. The properties of this object are the different options (or moves) the computer can make: rock, paper, and scissors. I used the Math.floor() and Math.random() functions to return a random option.
+Within computerPlay I decared a variable with an object value. The properties of this object are the different options (or moves) the computer can make: rock, paper, and scissors. I used the Math.floor and Math.random functions to return a random option.
 
 I declared two variables to hold the player's score and the computer's score:
 
@@ -202,7 +200,7 @@ let playerScore = 0;
 let computerScore = 0;
 ```
 
-Then, I defined a function playRound() with two parameters (playerSelection and computerSelection). Within this function, I wrote several else if statements within the if...else conditional to represent the various outcomes of the game:
+Then, I defined a function playRound with two parameters (playerSelection and computerSelection). Within this function, I wrote several else if statements within the if...else conditional to represent the various outcomes of the game:
 
 ```javascript
 function playRound(playerSelection, computerSelection) {
@@ -249,13 +247,13 @@ function playRound(playerSelection, computerSelection) {
 }
 ```
 
-In function playRound(), I incremented playerScore or computerScore depending on the outcome. I also printed the outcome to the player using template literals. I figured the user would appreciate seeing the result (and what the computer played) after each round in the 5-round game.
+In function playRound, I incremented playerScore or computerScore depending on the outcome. I also printed the outcome to the player using template literals. I figured the user would appreciate seeing the result (and what the computer played) after each round in the 5-round game.
 
-With the code set for a single round of rock, paper, scissors, I proceeded to write a function called game(). I inserted playRound() inside game() and looped playRound() five times.
+With the code set for a single round of rock, paper, scissors, I proceeded to write a function called game. I inserted playRound inside game and looped playRound five times.
 
-The game begins by prompting a user for an input (rock, paper, or scissors) and storing the input in a variable called playerSelection. I used the toLowerCase() function to ensure the input was case-insensitive. I also wrote a while loop that forces the user to enter a valid input.
+The game begins by prompting a user for an input (rock, paper, or scissors) and storing the input in a variable called playerSelection. I used the toLowerCase function to ensure the input was case-insensitive. I also wrote a while loop that forces the user to enter a valid input.
 
-I used a for loop to loop through playRound() five times to simulate a five-round game. I passed playerSelection and computerPlay() as arguments in playRound().
+I used a for loop to loop through playRound five times to simulate a five-round game. I passed playerSelection and computerPlay as arguments in playRound.
 
 ```javascript
 function game() {
@@ -297,7 +295,7 @@ if (playerScore > computerScore) {
 
 I wanted to give the player an option to immediately replay a 5-round game (particularly if the game ended in a tie). I declared a variable newGame that prompts the user if they'd like to play again. As I did with the initial prompt, I used a while loop to ensure the user enters valid input.
 
-If the user chooses to play again, I reset the value for playerScore and computerScore to 0, and invoked game(). If the player chooses to quit, the game ceases.
+If the user chooses to play again, I reset the value for playerScore and computerScore to 0, and invoked game. If the player chooses to quit, the game ceases.
 
 ```javascript
 let newGame = prompt(
