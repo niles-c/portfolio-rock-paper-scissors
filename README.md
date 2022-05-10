@@ -4,10 +4,10 @@ These are my solutions to Part 1 and Part 2 of the Rock Paper Scissors project o
 
 [See solution here](https://niles-c.github.io/odin-rock-paper-scissors/)
 
-## Table of contents
+## Table of Contents
 
 - [The Odin Project - Rock Paper Scissors](#the-odin-project---rock-paper-scissors)
-  - [Table of contents](#table-of-contents)
+  - [Table of Contents](#table-of-contents)
   - [Update (5/9/22)](#update-5922)
   - [Part 2 Update (4/14/22)](#part-2-update-41422)
     - [The Challenge](#the-challenge)
