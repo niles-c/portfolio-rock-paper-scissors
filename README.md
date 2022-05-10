@@ -2,10 +2,13 @@
 
 These are my solutions to Part 1 and Part 2 of the Rock Paper Scissors project on The Odin Project.
 
+[See solution here](https://niles-c.github.io/odin-rock-paper-scissors/)
+
 ## Table of contents
 
 - [The Odin Project - Rock Paper Scissors](#the-odin-project---rock-paper-scissors)
   - [Table of contents](#table-of-contents)
+  - [Update (5/9/22)](#update-5922)
   - [Part 2 Update (4/14/22)](#part-2-update-41422)
     - [The Challenge](#the-challenge)
     - [My Process](#my-process)
@@ -13,6 +16,12 @@ These are my solutions to Part 1 and Part 2 of the Rock Paper Scissors project o
     - [The Challenge](#the-challenge-1)
     - [My Process](#my-process-1)
     - [Continued Development](#continued-development)
+
+## Update (5/9/22)
+
+I returned to my Rock, Paper, Scissors project to add styles for text and buttons.
+
+For the color scheme, I used one of the trending color palettes on [coolors](https://coolors.co/palettes/trending) to spruce things up.
 
 ## Part 2 Update (4/14/22)
 
