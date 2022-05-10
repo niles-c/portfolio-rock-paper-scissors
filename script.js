@@ -1,9 +1,20 @@
 // Project: Rock Paper Scissors
 
+// rock button
 const rockBtn = document.querySelector("#rock");
+rockBtn.classList.add("playButtons");
+
+// paper button
 const paperBtn = document.querySelector("#paper");
+paperBtn.classList.add("playButtons");
+// scissors button
 const scissorsBtn = document.querySelector("#scissors");
+scissorsBtn.classList.add("playButtons");
+
+// new game button
 const newGameBtn = document.querySelector("#newGame");
+newGameBtn.classList.add("newGameButton");
+
 const roundScore = document.querySelector("#roundScore");
 const finalScore = document.querySelector("#finalScore");
 const player = document.querySelector("#player");

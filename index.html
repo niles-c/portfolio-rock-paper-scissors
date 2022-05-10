@@ -5,35 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock, Paper, Scissors Game</title>
-    <style>
-      .newLi {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .winner {
-        color: green;
-      }
-
-      .loser {
-        color: red;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Let's Play Rock, Paper, Scissors!</h1>
-    <h2><span id="player">0</span> to <span id="computer">0</span></h2>
-    <div>
-      <p id="finalScore"></p>
-    </div>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <button id="newGame">New Game</button>
-    <div>
-      <p>Make your move...</p>
-      <ul id="roundScore"></ul>
+    <div id="wrapper">
+      <h1>Let's Play Rock, Paper, Scissors!</h1>
+      <h2><span id="player">0</span> to <span id="computer">0</span></h2>
+      <div>
+        <p id="finalScore"></p>
+      </div>
+      <div id="btnContainer">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <button id="newGame">New Game</button>
+      </div>
+      <div id="scoreLog">
+        <p id="makeMove">Make your move...</p>
+        <ul id="roundScore"></ul>
+      </div>
     </div>
 
     <script src="script.js"></script>

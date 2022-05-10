@@ -1,0 +1,78 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid #faedcd;
+  padding: 30px;
+  background-color: #fefae0;
+}
+
+.newLi {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: #ccd5ae;
+  font-weight: 600;
+}
+.winner {
+  color: green;
+}
+
+.loser {
+  color: red;
+}
+
+h1 {
+  color: #d4a373;
+}
+
+.playButtons {
+  background-color: #e9edc9;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  padding: 0 20px;
+}
+
+.newGameButton {
+  background-color: #d4a373;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 30px;
+  padding: 0 20px;
+}
+
+#scoreLog {
+  /* border: 2px solid black; */
+}
+
+/* display: inline-block;
+outline: 0;
+border: none;
+cursor: pointer;
+font-weight: 600;
+border-radius: 4px;
+font-size: 13px;
+height: 30px;
+background-color: #0000000d;
+color: #0e0e10;
+padding: 0 20px;
+:hover {
+  background-color: #0000001a;
+} */
