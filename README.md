@@ -2,7 +2,7 @@
 
 These are my solutions to Part 1 and Part 2 of the Rock Paper Scissors project on The Odin Project.
 
-[See solution here](https://niles-c.github.io/odin-rock-paper-scissors/)
+[See solution here](https://niles-c.github.io/portfolio-rock-paper-scissors/)
 
 ## Table of Contents
 
